@@ -1,14 +1,20 @@
+#
+#Actividad de adivinar el número
+#
 import random
-from turtle import goto
-numa=random.randint(1,20)
-for intentos in range (6,1,-1):
-    numi=int(input("Intente adivinar un número entre el 1 y el 20 ", ))
-    if numi==numa:
+numeroS=random.randint(1,20)
+#numero secreto^
+print("[Intente adivinar un numero entre uno y veinte]")
+for i in range(1,6,1):
+    print("[Tiene ",6-i," intentos restantes]")
+    print("[Ingrese un numero a probar]")
+    intento=int(input("-->"))
+    if intento == numeroS:
+        print("[Adivinó!]")
         break
+    elif intento>numeroS:
+        print("[El numero que probo es mayor al numero secreto]")
     else:
-        print("No adivino! ",intentos," intentos restantes.")
-        if numa>numi:
-            print("El número es mayor al correcto")
-        else:
-            print("El número es menor al correcto")
-print("¡Lo adivino, el numero era ", numi ,"!")
+        print("[El numero que probo es menor al numero secreto]")
+    if i==6:
+        print("[Se ha quedado sin intentos]")
